@@ -1,10 +1,10 @@
 # SP-gra2seq: Linking Sketch Patches by Learning Synonymous Proximity for Graphic Sketch Representation
 
-<img src="https://github.com/SCZang/SP-gra2seq/blob/main/assets/synonym.png" width="400" alt="synonym"/>
+<img src="https://github.com/CMACH508/SP-gra2seq/blob/main/assets/synonym.png" width="400" alt="synonym"/>
 
 Graphic sketch representations are effective for representing sketches. Existing methods (e.g., [SketchHealer](https://openresearch.surrey.ac.uk/esploro/outputs/conferencePresentation/SketchHealer-A-Graph-to-Sequence-Network-for-Recreating/99514536202346?institution=44SUR_INST), [SketchLattice](https://openaccess.thecvf.com/content/ICCV2021/html/Qi_SketchLattice_Latticed_Representation_for_Sketch_Manipulation_ICCV_2021_paper.html)) take the patches cropped from sketches as the graph nodes, and construct the edges based on sketch's drawing order or Euclidean distances on the canvas. However, the drawing order of a sketch may not be unique, while the patches from semantically related parts of a sketch may be far away from each other on the canvas. SP-gra2seq constructs the graph edges by linking the sketch patches with the analogous semantic contents or geometric shapes, namely the synonymous proximity. Accordingly, SP-gra2seq is an order-invariant, semantics-aware method for learning the graphic sketch representations. 
 
-<img src="https://github.com/SCZang/SP-gra2seq/blob/main/assets/overview.png" width="800" alt="overview"/>
+<img src="https://github.com/CMACH508/SP-gra2seq/blob/main/assets/overview.png" width="800" alt="overview"/>
 
 When training an SP-gra2seq, a sketch is cropped into patches which are embedded by the convolutional neural network (CNN) encoder. We compute the cosine similarity between every pair of the patch embeddings as the evaluation of the introduced *synonymous proximity*. Each patch is linked to the patches with the top-2 values of the cosine similarity. The constructed graph edges enable the message passing between intra-sketch patches by the graph convolutional network (GCN) encoder, and the final sketch code is sent into the recurrent neural network (RNN) decoder to reconstruct the input sketch. Furthermore, we enforce a clustering constraint over the embeddings jointly with the network learning to raise the accuracy of the computed synonymous proximity.
 
@@ -71,7 +71,7 @@ python retrieval.py --data_dir=dataset_path --model_dir=checkpoint_path --sample
 ```
 `sample_dir` indicates the directory for storing the generated sketches.
 
-<img src="https://github.com/SCZang/SP-gra2seq/blob/main/assets/metrics.png" width="650" alt="metrics"/>
+<img src="https://github.com/CMACH508/SP-gra2seq/blob/main/assets/metrics.png" width="650" alt="metrics"/>
 
 * Please make sure both the metrics are computed with the entire test set (i.e., --num_per_category=2500).
 
@@ -79,7 +79,7 @@ python retrieval.py --data_dir=dataset_path --model_dir=checkpoint_path --sample
 
 ## Masking Approach
 
-<img src="https://github.com/SCZang/SP-gra2seq/blob/main/assets/masking.png" width="800" alt="masking"/>
+<img src="https://github.com/CMACH508/SP-gra2seq/blob/main/assets/masking.png" width="800" alt="masking"/>
 
 The figure above presents four different approaches for creating corrupted sketches for sketch healing: (a) our approach utilized in the article, (b) the approach utilized in [SketchHealer](https://github.com/sgybupt/SketchHealer), (c) the approach utilized in [SketchLattice](https://github.com/qugank/sketch-lattice.github.io) and (d) our approach adjusted for SketchLattice.
 
