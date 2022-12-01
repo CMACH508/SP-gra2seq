@@ -8,7 +8,7 @@ Graphic sketch representations are effective for representing sketches. Existing
 
 When training an SP-gra2seq, a sketch is cropped into patches which are embedded by the convolutional neural network (CNN) encoder. We compute the cosine similarity between every pair of the patch embeddings as the evaluation of the introduced *synonymous proximity*. Each patch is linked to the patches with the top-2 values of the cosine similarity. The constructed graph edges enable the message passing between intra-sketch patches by the graph convolutional network (GCN) encoder, and the final sketch code is sent into the recurrent neural network (RNN) decoder to reconstruct the input sketch. Furthermore, we enforce a clustering constraint over the embeddings jointly with the network learning to raise the accuracy of the computed synonymous proximity.
 
-The corresponding article was accepted by **AAAI 2023**, and an early version will be available in the [arXiv link](https://arxiv.org/abs/2211.16841). This repo will contain the TensorFlow code, the pre-trained models for SP-gra2seq in the early future.
+The corresponding article was accepted by **AAAI 2023**, and an early version is available in the [arXiv link](https://arxiv.org/abs/2211.16841). This repo contains the TensorFlow code, the pre-trained models for SP-gra2seq can be found in [link](https://jbox.sjtu.edu.cn/l/i193TY).
 
 # Training an SP-gra2seq
 
@@ -75,7 +75,7 @@ python retrieval.py --data_dir=dataset_path --model_dir=checkpoint_path --sample
 
 * Please make sure both the metrics are computed with the entire test set (i.e., --num_per_category=2500).
 
-* We also provide the random seeds in `random_seed.npy` for creating the random masks for sketch healing. These seeds are the specific ones utilized in the article for the sketch healing performance evaluation. You can use them to make a fair comparision with the benchmarks in the article.
+* We also provide the random seeds in `random_seed.npy` (stored in the .zip file in [link](https://jbox.sjtu.edu.cn/l/i193TY)) for creating the random masks for sketch healing. These seeds are the specific ones utilized in the article for the sketch healing performance evaluation. You can use them to make a fair comparision with the benchmarks in the article.
 
 ## Masking Approach
 
