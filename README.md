@@ -8,7 +8,7 @@ Graphic sketch representations are effective for representing sketches. Existing
 
 When training an SP-gra2seq, a sketch is cropped into patches which are embedded by the convolutional neural network (CNN) encoder. We compute the cosine similarity between every pair of the patch embeddings as the evaluation of the introduced *synonymous proximity*. Each patch is linked to the patches with the top-2 values of the cosine similarity. The constructed graph edges enable the message passing between intra-sketch patches by the graph convolutional network (GCN) encoder, and the final sketch code is sent into the recurrent neural network (RNN) decoder to reconstruct the input sketch. Furthermore, we enforce a clustering constraint over the embeddings jointly with the network learning to raise the accuracy of the computed synonymous proximity.
 
-The corresponding article was accepted by **AAAI 2023**, and an early version will be available in the [arXiv link](). This repo will contain the TensorFlow code, the pre-trained models for SP-gra2seq in the early future.
+The corresponding article was accepted by **AAAI 2023**, and an early version will be available in the [arXiv link](https://arxiv.org/abs/2211.16841). This repo will contain the TensorFlow code, the pre-trained models for SP-gra2seq in the early future.
 
 # Training an SP-gra2seq
 
@@ -92,4 +92,13 @@ In sub-figure (c), SketchLattice firstly creates a lattice on the sketch canvas 
 We also adjust our masking approach for SketchLattice, shown in sub-figure (d), ensuring that the corrupted sketches fed to SketchLattice share the same corrupting level with other models. The sketch masking and coordinate selecting are separately applied by two steps. More specifically, the lattice is created after the sketch masking, and more coordinates may be dropped comparing with sub-figure (c).
 
 # Citation
-This work is proposed by Sicong Zang, Shikui Tu and Lei Xu from Shanghai Jiao Tong University. The citation is coming soon.
+If you find this project useful for academic purposes, please cite it as:
+```
+@misc{zang2022linking,
+      title={Linking Sketch Patches by Learning Synonymous Proximity for Graphic Sketch Representation}, 
+      author={Sicong Zang and Shikui Tu and Lei Xu},
+      year={2022},
+      eprint={2211.16841},
+      archivePrefix={arXiv}
+}
+```
